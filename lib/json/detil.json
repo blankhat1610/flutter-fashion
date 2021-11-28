@@ -1,0 +1,47 @@
+{
+  "bannerList": [
+    "https://yanxuan.nosdn.127.net/5efcbeecb663e629c1bb309c7b356f60.png",
+    "https://yanxuan.nosdn.127.net/f968b48c45f29fc1a15b6cff7f92368d.png",
+    "https://yanxuan.nosdn.127.net/17cbeab4e5e47ef2b5fa0f2adce6cbc2.png",
+    "https://yanxuan.nosdn.127.net/cf035e09fe2fae909e5d378ccd396e56.png",
+    "https://yanxuan.nosdn.127.net/53dd392169abf4984ee5daec84510826.png",
+    "https://yanxuan.nosdn.127.net/1f22276749f73010ae94ae6b8960d201.png"
+  ],
+  "specificationList": [
+    {
+      "name": " Specification name 1 ",
+      "specification": [
+        " Specification value 1 ",
+        " Specification value 2 ",
+        " Specification value 3 ",
+        " Specification value 4 ",
+        " Specification value 5 ",
+        " Specification value 6 ",
+        " Specification value 7 "
+      ]
+    },
+    {
+      "name": " Specification name 2 ",
+      "specification": [
+        " Specification value 8 ",
+        " Specification value 9 ",
+        " Specification value 10 ",
+        " Special special special long specifications "
+      ]
+    }
+  ],
+  "contact": "17783887443",
+  "goodsName": " COACH COACH Luxury Ladies Dark Brown PVC Single Shoulder Bag F57842 IMAA8 ",
+  "brandName": "蔻驰",
+  "goodsSeries": " New in spring and summer ",
+  "price": "5000.0",
+  "supplierId": "12313",
+  "supplierName": "蔻驰",
+  "supplierCode": "zs11WBD66666",
+  "platformCode": "zs11WBD66666",
+  "produceTime": "999天",
+
+  "guidePrice": "6599.0",
+  "miniBuyNum": "999",
+  "goodsImgUrl": "https://yanxuan.nosdn.127.net/1f22276749f73010ae94ae6b8960d201.png"
+}
