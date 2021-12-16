@@ -1,5 +1,5 @@
-import 'package:AiRi/model/category.dart';
-import 'package:AiRi/utils/request.dart';
+import 'package:fashion/model/category.dart';
+import 'package:fashion/utils/request.dart';
 
 /// Category page
 class CateGoryAPI {

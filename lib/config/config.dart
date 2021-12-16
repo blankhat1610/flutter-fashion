@@ -1,4 +1,4 @@
-import 'package:AiRi/env.dart';
+import 'package:fashion/env.dart';
 
 // Development environment
 const SERVER_HOST_DEV = 'http://xieyezi.com:9003/mock/11/airi';

@@ -1,10 +1,10 @@
-import 'package:AiRi/styles/styles.dart';
+import 'package:fashion/pages/confirm_order/confirm_order.dart';
+import 'package:fashion/pages/shopping_cart/store/shopping_cart_provider.dart';
+import 'package:fashion/styles/styles.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
-import 'package:AiRi/pages/confirm_order/confirm_order.dart';
-import 'package:AiRi/pages/shopping_cart/store/shopping_cart_provider.dart';
-import 'package:AiRi/utils/my_navigator.dart';
 
 class CartBottom extends StatelessWidget {
   @override

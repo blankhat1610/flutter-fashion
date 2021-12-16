@@ -1,5 +1,5 @@
-import 'package:AiRi/model/search.dart';
-import 'package:AiRi/utils/request.dart';
+import 'package:fashion/model/search.dart';
+import 'package:fashion/utils/request.dart';
 
 /// Search page
 class SearchAPI {

@@ -1,5 +1,5 @@
+import 'package:fashion/styles/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/styles/colors.dart';
 
 class LeftTitle extends StatelessWidget {
   final Color? tipColor;

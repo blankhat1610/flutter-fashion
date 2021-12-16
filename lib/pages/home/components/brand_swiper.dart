@@ -1,10 +1,10 @@
-import 'package:AiRi/components/components.dart';
-import 'package:AiRi/styles/styles.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/components/left_title.dart';
+import 'package:fashion/model/home.dart';
+import 'package:fashion/pages/supplier/supplier_page.dart';
+import 'package:fashion/styles/styles.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/components/left_title.dart';
-import 'package:AiRi/model/home.dart';
-import 'package:AiRi/pages/supplier/supplier_page.dart';
-import 'package:AiRi/utils/my_navigator.dart';
 
 class BrandSwiper extends StatelessWidget {
   final List<BrandListElement> brandList;

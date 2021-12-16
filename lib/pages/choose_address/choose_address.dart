@@ -1,6 +1,6 @@
-import 'package:AiRi/components/components.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/utils/my_navigator.dart';
 
 class ChooseAddress extends StatelessWidget {
   const ChooseAddress({Key? key}) : super(key: key);

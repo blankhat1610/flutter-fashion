@@ -1,13 +1,15 @@
 import 'dart:io';
-import 'package:AiRi/pages/login/login_page.dart';
+
+import 'package:fashion/pages/login/login_page.dart';
+import 'package:fashion/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:AiRi/styles/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'pages/main/main_page.dart';
 import 'pages/main/store/main_provider.dart';
 import 'pages/shopping_cart/store/shopping_cart_global_provider.dart';
@@ -58,7 +60,7 @@ class MyApp extends StatelessWidget {
           ],
           supportedLocales: [
             const Locale('en'),
-            const Locale('zh'),
+            const Locale('vi'),
           ],
           localeResolutionCallback:
               (Locale? locale, Iterable<Locale> supportedLocales) {

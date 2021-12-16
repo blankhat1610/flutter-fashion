@@ -1,8 +1,8 @@
-import 'package:AiRi/components/components.dart';
-import 'package:AiRi/styles/styles.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/pages/order_detail/order_detail_page.dart';
+import 'package:fashion/styles/styles.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/pages/order_detail/order_detail_page.dart';
-import 'package:AiRi/utils/my_navigator.dart';
 
 class Bottom extends StatelessWidget {
   const Bottom({Key? key}) : super(key: key);

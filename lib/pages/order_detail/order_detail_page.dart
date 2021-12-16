@@ -1,10 +1,11 @@
-import 'package:AiRi/components/components.dart';
-import 'package:AiRi/pages/pay/pay_page.dart';
-import 'package:AiRi/styles/colors.dart';
-import 'package:AiRi/utils/my_navigator.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/pages/order_detail/components/address.dart';
+import 'package:fashion/pages/order_detail/components/delivery.dart';
+import 'package:fashion/pages/pay/pay_page.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/pages/order_detail/components/address.dart';
-import 'package:AiRi/pages/order_detail/components/delivery.dart';
+
 import 'components/info.dart';
 import 'components/item.dart';
 

@@ -1,6 +1,6 @@
+import 'package:fashion/model/category.dart';
+import 'package:fashion/services/services.dart';
 import 'package:flutter/foundation.dart';
-import 'package:AiRi/model/category.dart';
-import 'package:AiRi/services/services.dart';
 
 class CateGoryPageProvider with ChangeNotifier {
   bool loading = true;

@@ -1,9 +1,10 @@
-import 'package:AiRi/components/components.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/pages/category/store/category_page_provider.dart';
+import 'package:fashion/pages/search/search_page.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:AiRi/pages/category/store/category_page_provider.dart';
-import 'package:AiRi/pages/search/search_page.dart';
-import 'package:AiRi/utils/my_navigator.dart';
+
 import 'components/menue.dart';
 import 'components/right_list_view.dart';
 

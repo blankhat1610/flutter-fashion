@@ -1,7 +1,7 @@
+import 'package:fashion/pages/main/store/main_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:AiRi/pages/main/store/main_provider.dart';
 
 class MyNavigator {
   // Set the context once to facilitate later

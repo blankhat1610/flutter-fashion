@@ -1,9 +1,9 @@
-import 'package:AiRi/components/bottom_button.dart';
-import 'package:AiRi/components/components.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fashion/components/bottom_button.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/model/detail.dart';
+import 'package:fashion/styles/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/model/detail.dart';
-import 'package:AiRi/styles/colors.dart';
 
 class Specifications extends StatelessWidget {
   final String goodsImgUrl;

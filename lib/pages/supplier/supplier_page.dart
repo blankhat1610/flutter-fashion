@@ -1,20 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/model/goods.dart';
+import 'package:fashion/pages/search/search_page.dart';
+import 'package:fashion/pages/supplier/store/supplier_provider.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:AiRi/components/base_scaffold.dart';
-import 'package:AiRi/components/commdity_item.dart';
-import 'package:AiRi/components/left_title.dart';
-import 'package:AiRi/components/my_app_bar.dart';
-import 'package:AiRi/components/my_custom_footer.dart';
-import 'package:AiRi/components/my_divider.dart';
-import 'package:AiRi/components/my_loading.dart';
-import 'package:AiRi/model/goods.dart';
-import 'package:AiRi/pages/search/search_page.dart';
-import 'package:AiRi/pages/supplier/components/search_bar.dart';
-import 'package:AiRi/pages/supplier/store/supplier_provider.dart';
-import 'package:AiRi/styles/colors.dart';
-import 'package:AiRi/utils/my_navigator.dart';
 
 class SupplierPage extends StatelessWidget {
   final String supplierId;

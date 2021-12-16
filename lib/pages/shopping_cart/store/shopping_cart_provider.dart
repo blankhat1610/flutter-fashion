@@ -1,6 +1,7 @@
 import 'dart:async';
+
+import 'package:fashion/components/my_toast.dart';
 import 'package:flutter/foundation.dart';
-import 'package:AiRi/components/my_toast.dart';
 
 class ShopingCartProvider with ChangeNotifier {
   /// Whether to select all products

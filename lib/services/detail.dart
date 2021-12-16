@@ -1,5 +1,5 @@
-import 'package:AiRi/model/detail.dart';
-import 'package:AiRi/utils/request.dart';
+import 'package:fashion/model/detail.dart';
+import 'package:fashion/utils/request.dart';
 
 /// Details page
 class DetailAPI {

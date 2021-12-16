@@ -1,7 +1,7 @@
 /// detail provider
+import 'package:fashion/model/detail.dart';
+import 'package:fashion/services/services.dart';
 import 'package:flutter/foundation.dart';
-import 'package:AiRi/model/detail.dart';
-import 'package:AiRi/services/services.dart';
 
 class DetailPageProvider with ChangeNotifier {
   bool loading = true;

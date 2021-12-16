@@ -1,5 +1,5 @@
-import 'package:AiRi/model/home.dart';
-import 'package:AiRi/utils/request.dart';
+import 'package:fashion/model/home.dart';
+import 'package:fashion/utils/request.dart';
 
 /// front page
 class HomeAPI {

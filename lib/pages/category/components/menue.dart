@@ -1,6 +1,6 @@
-import 'package:AiRi/styles/colors.dart';
-import 'package:flutter/material.dart';
+import 'package:fashion/styles/colors.dart';
 import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 
 class CategoryMenue extends StatefulWidget {
   final List<String> items;

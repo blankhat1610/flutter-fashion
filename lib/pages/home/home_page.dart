@@ -1,16 +1,16 @@
-import 'package:AiRi/components/components.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/model/goods.dart';
+import 'package:fashion/pages/home/components/brand_swiper.dart';
+import 'package:fashion/pages/home/components/commodity_category.dart';
+import 'package:fashion/pages/home/components/head_swiper.dart';
+import 'package:fashion/pages/home/store/home_page_provider.dart';
+import 'package:fashion/pages/main/components/preload_images.dart';
+import 'package:fashion/pages/search/search_page.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:AiRi/model/goods.dart';
-import 'package:AiRi/pages/home/components/brand_swiper.dart';
-import 'package:AiRi/pages/home/components/commodity_category.dart';
-import 'package:AiRi/pages/home/components/head_swiper.dart';
-import 'package:AiRi/pages/home/store/home_page_provider.dart';
-import 'package:AiRi/pages/main/components/preload_images.dart';
-import 'package:AiRi/pages/search/search_page.dart';
-import 'package:AiRi/styles/colors.dart';
-import 'package:AiRi/utils/my_navigator.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage>
       child: BaseScaffold(
         leadType: AppBarBackType.None,
         actions: <Widget>[AppBarShopCartIconButton()],
-        title: 'Homepage',
+        title: 'Home page',
         centerTitle: true,
         body: HomePageContainer(),
       ),
@@ -77,7 +77,7 @@ class _HomePageContainerState extends State<HomePageContainer> {
                         SliverToBoxAdapter(
                           child: SearchBar(
                               myOntap: (value) => MyNavigator.push(
-                                  SearchPage(title: '搜索', keyword: value))),
+                                  SearchPage(title: 'Search', keyword: value))),
                         ),
 
                         /// Top carousel picture

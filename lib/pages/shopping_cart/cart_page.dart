@@ -1,10 +1,11 @@
-import 'package:AiRi/components/components.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/pages/shopping_cart/store/shopping_cart_provider.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
-import 'package:AiRi/pages/shopping_cart/store/shopping_cart_provider.dart';
-import 'package:AiRi/styles/colors.dart';
-import 'package:AiRi/utils/my_navigator.dart';
+
 import 'components/cart_bottom.dart';
 import 'components/cart_item.dart';
 

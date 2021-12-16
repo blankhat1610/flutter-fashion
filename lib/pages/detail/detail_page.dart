@@ -1,10 +1,11 @@
-import 'package:AiRi/components/components.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/pages/detail/components/Introduction_configuration.dart';
+import 'package:fashion/pages/detail/store/detail_page_provider.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/utils/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:AiRi/pages/detail/components/Introduction_configuration.dart';
-import 'package:AiRi/pages/detail/store/detail_page_provider.dart';
-import 'package:AiRi/styles/colors.dart';
-import 'package:AiRi/utils/screen.dart';
+
 import 'components/bottom.dart';
 import 'components/head_swiper.dart';
 import 'components/info.dart';

@@ -1,10 +1,9 @@
-import 'package:AiRi/components/my_cahenetwork_image.dart';
+import 'package:fashion/components/my_cahenetwork_image.dart';
+import 'package:fashion/model/goods.dart';
+import 'package:fashion/pages/detail/detail_page.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/model/goods.dart';
-import 'package:AiRi/pages/detail/detail_page.dart';
-
-import 'package:AiRi/styles/colors.dart';
-import 'package:AiRi/utils/my_navigator.dart';
 
 class CommdityItem extends StatelessWidget {
   final GoodsList goodData;

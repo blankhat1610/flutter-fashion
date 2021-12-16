@@ -1,6 +1,6 @@
+import 'package:fashion/components/my_divider.dart';
+import 'package:fashion/styles/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/components/my_divider.dart';
-import 'package:AiRi/styles/colors.dart';
 
 class Info extends StatelessWidget {
   final String goodsName;

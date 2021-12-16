@@ -1,10 +1,10 @@
-import 'package:AiRi/components/components.dart';
-import 'package:AiRi/styles/styles.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/pages/confirm_order/components/remark.dart';
+import 'package:fashion/pages/shopping_cart/components/cart_item.dart';
+import 'package:fashion/pages/shopping_cart/store/shopping_cart_provider.dart';
+import 'package:fashion/styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:AiRi/pages/confirm_order/components/remark.dart';
-import 'package:AiRi/pages/shopping_cart/components/cart_item.dart';
-import 'package:AiRi/pages/shopping_cart/store/shopping_cart_provider.dart';
 
 class OrderItem extends StatelessWidget {
   const OrderItem({Key? key}) : super(key: key);

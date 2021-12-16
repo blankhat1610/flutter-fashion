@@ -1,9 +1,10 @@
-import 'package:AiRi/components/components.dart';
-import 'package:AiRi/pages/main/store/main_provider.dart';
-import 'package:AiRi/styles/colors.dart';
-import 'package:AiRi/utils/my_navigator.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/pages/main/store/main_provider.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'components/middle.dart';
 import 'components/top.dart';
 
