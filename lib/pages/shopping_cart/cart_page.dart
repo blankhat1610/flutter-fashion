@@ -27,8 +27,9 @@ class _CartPageState extends State<CartPage> {
           Selector<ShopingCartProvider, Tuple2<Function, bool>>(
             builder: (_, tuple, __) {
               return IconButton(
+                iconSize: 33.0,
                 icon: Text(
-                  tuple.item2 ? 'Finish' : 'Edit',
+                  tuple.item2 ? 'Save' : 'Edit',
                   style: TextStyle(
                       color: AppColors.primaryGreyText,
                       fontSize: 14,
