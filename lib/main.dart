@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
         enableBallisticLoad:
             true, // Load more can be triggered by inertial sliding
         child: MaterialApp(
-          title: 'AiRi',
+          title: 'Fashion Store',
           localizationsDelegates: [
             RefreshLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
