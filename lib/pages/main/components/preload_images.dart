@@ -12,6 +12,10 @@ class PreloadImages extends StatelessWidget {
         Image.asset('assets/images/tabbar/fenlei_ON.png'),
         Image.asset('assets/images/tabbar/diangdan_ON.png'),
         Image.asset('assets/images/tabbar/guanli_ON.png'),
+        Image.asset('assets/images/tabbar/zhuye_off.png'),
+        Image.asset('assets/images/tabbar/fenlei_ON.png'),
+        Image.asset('assets/images/tabbar/diangdan_ON.png'),
+        Image.asset('assets/images/tabbar/guanli_ON.png'),
       ],
     );
   }

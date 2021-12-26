@@ -43,7 +43,9 @@ class CommodityCateGory extends StatelessWidget {
                         ),
                 ),
                 Text(
-                  i == cateGoryList.length ? '更多分类' : cateGoryList[i].name,
+                  i == cateGoryList.length
+                      ? 'More Category'
+                      : cateGoryList[i].name,
                   style: TextStyle(
                     color: AppColors.primaryText,
                     fontSize: 12,
