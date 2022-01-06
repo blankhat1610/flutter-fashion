@@ -21,17 +21,17 @@ class HomePageProvider with ChangeNotifier {
     HomeModel res = await HomeAPI.getHomeData();
 
     /// First load
-    banerList = res.banerList;
+    // banerList = res.banerList;
     cateGoryList = res.cateGoryList;
-    brandList = res.brandList;
+    // brandList = res.brandList;
     hotList = res.hotList;
     loading = false;
 
     /// Pull down to refresh
     if (refresh) {
-      banerList = res.banerList;
+      // banerList = res.banerList;
       cateGoryList = res.cateGoryList;
-      brandList = res.brandList;
+      // brandList = res.brandList;
       hotList = res.hotList;
       loading = false;
       refreshController.refreshCompleted();

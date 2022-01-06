@@ -1,4 +1,5 @@
 import 'package:fashion/components/components.dart';
+import 'package:fashion/config/config.dart';
 import 'package:fashion/pages/detail/components/Introduction_configuration.dart';
 import 'package:fashion/pages/detail/store/detail_page_provider.dart';
 import 'package:fashion/styles/colors.dart';
@@ -12,13 +13,13 @@ import 'components/info.dart';
 import 'components/specifications.dart';
 
 class DetailPage extends StatelessWidget {
-  final String goodsId;
+  final int goodsId;
   const DetailPage({Key? key, required this.goodsId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => DetailPageProvider(),
+      create: (_) => DetailPageProvider(this.goodsId),
       child: BaseScaffold(
         leadType: AppBarBackType.Back,
         actions: <Widget>[
@@ -60,23 +61,27 @@ class DetailContainer extends StatelessWidget {
                     physics: AlwaysScrollableScrollPhysics(),
                     child: Column(
                       children: <Widget>[
-                        DetailHeadSwiper(
-                          bannerList: state.bannerList,
+                        AspectRatio(
+                          aspectRatio: 3/4,
+                          child: MyCachedNetworkImage(
+                            imageurl: SERVER_HOST_IMG + state.image,
+                          ),
                         ),
                         MyDivider(),
                         Info(
-                          goodsName: state.goodsName,
-                          brandName: state.brandName,
-                          goodsSeries: state.goodsSeries,
+                          name: state.name,
+                          // brandName: state.brandName,
+                          // goodsSeries: state.goodsSeries,
                           price: state.price,
                         ),
                         MyDivider(),
-                        Specifications(
-                            price: state.price,
-                            goodsImgUrl: state.goodsImgUrl,
-                            guidePrice: state.guidePrice,
-                            miniBuyNum: state.miniBuyNum,
-                            specificationList: state.specificationList),
+                        // Specifications(
+                        //     price: state.price,
+                        //     goodsImgUrl: state.image,
+                        //     guidePrice: state.guidePrice,
+                        //     miniBuyNum: state.miniBuyNum,
+                        //     specificationList: state.specificationList
+                        // ),
                         IntroductionAndConfiguration()
                       ],
                     ),
@@ -86,7 +91,7 @@ class DetailContainer extends StatelessWidget {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  child: DetailBottom(contact: state.contact),
+                  child: DetailBottom(),
                 ),
               ],
             ),

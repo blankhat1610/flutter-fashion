@@ -91,6 +91,7 @@ class RequestUtil {
         queryParameters: params,
         options: requestOptions,
       );
+      print("a---------------------------------");
       return response.data;
     } on DioError catch (e) {
       throw createErrorEntity(e);

@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DetailBottom extends StatelessWidget {
-  final String contact;
-  const DetailBottom({Key? key, required this.contact}) : super(key: key);
+  // final String contact;
+  const DetailBottom({Key? key}) : super(key: key);
 
   /// each item on the left
   Widget _buildleftItem(String imgUrl, String title) {
@@ -40,9 +40,9 @@ class DetailBottom extends StatelessWidget {
     return Row(
       children: <Widget>[
         GestureDetector(
-          onTap: () => MyToast.show('Successfully added to the shopping cart~'),
+          onTap: () => MyToast.show('Successfully added to the shopping cart'),
           child: Container(
-            width: 90,
+            width: 120,
             height: 40,
             decoration: BoxDecoration(
               // color: AppColors.addToCart,
@@ -70,7 +70,7 @@ class DetailBottom extends StatelessWidget {
         GestureDetector(
           onTap: () => MyNavigator.push(ConfirmOrderPage()),
           child: Container(
-            width: 90,
+            width: 120,
             height: 40,
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -98,12 +98,12 @@ class DetailBottom extends StatelessWidget {
     );
   }
 
-  void _contact() async {
-    final url = 'tel:' + contact;
-    if (await canLaunch(url)) {
-      await launch(url);
-    }
-  }
+  // void _contact() async {
+  //   final url = 'tel:' + contact;
+  //   if (await canLaunch(url)) {
+  //     await launch(url);
+  //   }
+  // }
 
   // pop-up dialogue box
   void _showDialog(BuildContext context) {
@@ -121,14 +121,14 @@ class DetailBottom extends StatelessWidget {
             content: Center(
               child: Column(
                 children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(bottom: 10.0),
-                    child: Text(
-                      'Contact phone: $contact ',
-                      style:
-                          TextStyle(color: Color(0xFF666666), fontSize: 14.0),
-                    ),
-                  ),
+                  // Container(
+                  //   padding: EdgeInsets.only(bottom: 10.0),
+                  //   child: Text(
+                  //     'Contact phone: $contact ',
+                  //     style:
+                  //         TextStyle(color: Color(0xFF666666), fontSize: 14.0),
+                  //   ),
+                  // ),
                   Container(
                     child: Text(
                       'Customer service working hours: working days 9:30~17:30',
@@ -142,9 +142,9 @@ class DetailBottom extends StatelessWidget {
             confirmContent: 'make a call',
             isCancel: true,
             confirmTextColor: AppColors.buyNow1,
-            confirmCallback: () {
-              _contact();
-            },
+            // confirmCallback: () {
+            //   _contact();
+            // },
             dismissCallback: () {
               return;
             },
@@ -173,33 +173,34 @@ class DetailBottom extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            width: MediaQuery.of(context).size.width / 2,
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                GestureDetector(
-                    onTap: () => _showDialog(context),
-                    child:
-                        _buildleftItem('assets/images/home/lianxi.png', '客服')),
-                SizedBox(
-                  width: 30,
-                ),
-                GestureDetector(
-                    onTap: () =>
-                        MyNavigator.push(SupplierPage(supplierId: 'id')),
-                    child: _buildleftItem('assets/images/home/shop.png', '店铺')),
-                SizedBox(
-                  width: 30,
-                ),
+                // GestureDetector(
+                //     onTap: () => _showDialog(context),
+                //     child:
+                //         _buildleftItem('assets/images/home/lianxi.png', '客服')),
+                // SizedBox(
+                //   width: 30,
+                // ),
+                // GestureDetector(
+                //     onTap: () =>
+                //         MyNavigator.push(SupplierPage(supplierId: 'id')),
+                //     child: _buildleftItem('assets/images/home/shop.png', '店铺')),
+                // SizedBox(
+                //   width: 30,
+                // ),
                 GestureDetector(
                     onTap: () => MyNavigator.push(CartPage()),
                     child: _buildleftItem(
-                        'assets/images/home/gouwuche.png', 'shopping cart')),
+                        'assets/images/home/gouwuche.png', 'Cart')
+                ),
               ],
             ),
           ),
           Container(
-            width: MediaQuery.of(context).size.width / 2,
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: _buildRight(),
           ),
         ],

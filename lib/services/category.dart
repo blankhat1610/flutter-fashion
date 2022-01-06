@@ -6,6 +6,7 @@ class CateGoryAPI {
   /// Get classified data
   static Future<CateGoryModel> getData() async {
     var response = await RequestUtil().get('/category');
+    // print(response);
     return CateGoryModel.fromJson(response);
   }
 }

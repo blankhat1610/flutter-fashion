@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../styles/colors.dart';
+import '../../../config/config.dart';
 
 class CommodityCateGory extends StatelessWidget {
   final List<BrandListElement> cateGoryList;
@@ -39,7 +40,7 @@ class CommodityCateGory extends StatelessWidget {
                           fit: BoxFit.contain,
                         )
                       : MyCachedNetworkImage(
-                          imageurl: cateGoryList[i].icon,
+                          imageurl: SERVER_HOST_IMG + cateGoryList[i].icon,
                         ),
                 ),
                 Text(

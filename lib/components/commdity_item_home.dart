@@ -1,4 +1,5 @@
 import 'package:fashion/components/my_cahenetwork_image.dart';
+import 'package:fashion/config/config.dart';
 import 'package:fashion/model/goods.dart';
 import 'package:fashion/pages/detail/detail_page.dart';
 import 'package:fashion/styles/styles.dart';
@@ -13,9 +14,8 @@ class CommdityItemHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: () => MyNavigator.push(DetailPage(goodsId: goodData.goodsId)),
+      onTap: () => MyNavigator.push(DetailPage(goodsId: goodData.id)),
       child: Container(
-        height: 240,
         width: (MediaQuery.of(context).size.width - 40) / 2,
         padding: EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
@@ -23,50 +23,56 @@ class CommdityItemHome extends StatelessWidget {
           color: Colors.white,
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              height: 182,
+            AspectRatio(
+              aspectRatio: 3/4,
               child: MyCachedNetworkImage(
-                imageurl: goodData.goodsPicUrl,
+                imageurl: SERVER_HOST_IMG + goodData.image,
               ),
             ),
-            Container(
-              width: (MediaQuery.of(context).size.width - 40) / 2,
-              child: Text(
-                goodData.goodsName,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: AppColors.primaryText,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w500,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Container(
+                width: (MediaQuery.of(context).size.width - 40) / 2,
+                child: Text(
+                  goodData.name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: AppColors.primaryText,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
-            Container(
-              width: (MediaQuery.of(context).size.width - 40) / 2,
-              child: Text(
-                'Uniqlo official flagship store',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: AppColors.primaryGreyText,
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-            Container(
-              width: (MediaQuery.of(context).size.width - 40) / 2,
-              child: Text(
-                '¥${goodData.goodsMiniPrice}',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: AppColors.priceColor,
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.normal,
+            // Container(
+            //   width: (MediaQuery.of(context).size.width - 40) / 2,
+            //   child: Text(
+            //     'Uniqlo official flagship store',
+            //     maxLines: 1,
+            //     overflow: TextOverflow.ellipsis,
+            //     style: TextStyle(
+            //       color: AppColors.primaryGreyText,
+            //       fontSize: 12.0,
+            //       fontWeight: FontWeight.w500,
+            //     ),
+            //   ),
+            // ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Container(
+                width: (MediaQuery.of(context).size.width - 40) / 2,
+                child: Text(
+                  '${goodData.price} đ',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: AppColors.priceColor,
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
               ),
             ),

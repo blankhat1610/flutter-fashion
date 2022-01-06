@@ -72,7 +72,7 @@ class CartContainer extends StatelessWidget {
           child: brandList.length == 0
               ? Empty(
                   img: 'assets/images/shopping_cart/empty.png',
-                  tipText: 'The shopping cart is empty, go shopping~',
+                  tipText: 'The shopping cart is empty, go shopping',
                   buttonText: 'Go to purchase',
                   buttonTap: () => MyNavigator.popToHome(),
                 )

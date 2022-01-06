@@ -6,7 +6,7 @@ import 'package:fashion/styles/colors.dart';
 import 'package:flutter/material.dart';
 
 class Specifications extends StatelessWidget {
-  final String goodsImgUrl;
+  final String image;
   final String guidePrice;
   final String price;
   final String miniBuyNum;
@@ -17,7 +17,7 @@ class Specifications extends StatelessWidget {
       required this.guidePrice,
       required this.miniBuyNum,
       required this.specificationList,
-      required this.goodsImgUrl,
+      required this.image,
       required this.price})
       : super(key: key);
 
@@ -47,7 +47,7 @@ class Specifications extends StatelessWidget {
             top: 0,
             left: 0,
             child: CachedNetworkImage(
-              imageUrl: goodsImgUrl,
+              imageUrl: image,
               height: 120,
               width: 120,
             ),

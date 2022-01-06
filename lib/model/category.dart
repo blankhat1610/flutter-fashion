@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:fashion/config/config.dart';
+
 CateGoryModel cateGoryModelFromJson(String str) =>
     CateGoryModel.fromJson(json.decode(str));
 
@@ -24,45 +26,45 @@ class CateGoryModel {
 
 class CategoryDatum {
   String name;
-  String banner;
+  // String banner;
   List<ListElement> list;
 
   CategoryDatum({
     required this.name,
-    required this.banner,
+    // required this.banner,
     required this.list,
   });
 
   factory CategoryDatum.fromJson(Map<String, dynamic> json) => CategoryDatum(
         name: json["name"],
-        banner: json["banner"],
+        // banner: json["banner"],
         list: List<ListElement>.from(
-            json["list"].map((x) => ListElement.fromJson(x))),
+            json["products"].map((x) => ListElement.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "name": name,
-        "banner": banner,
-        "list": List<dynamic>.from(list.map((x) => x.toJson())),
+        // "banner": banner,
+        "products": List<dynamic>.from(list.map((x) => x.toJson())),
       };
 }
 
 class ListElement {
   String name;
-  String icon;
+  String thumb;
 
   ListElement({
     required this.name,
-    required this.icon,
+    required this.thumb,
   });
 
   factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
         name: json["name"],
-        icon: json["icon"],
+        thumb: SERVER_HOST_IMG + json["thumb"],
       );
 
   Map<String, dynamic> toJson() => {
         "name": name,
-        "icon": icon,
+        "thumb": thumb,
       };
 }

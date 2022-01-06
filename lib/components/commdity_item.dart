@@ -13,7 +13,7 @@ class CommdityItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: () => MyNavigator.push(DetailPage(goodsId: goodData.goodsId)),
+      onTap: () => MyNavigator.push(DetailPage(goodsId: goodData.id)),
       child: Container(
         height: 140,
         // color: Colors.red,
@@ -25,7 +25,7 @@ class CommdityItem extends StatelessWidget {
               width: 120,
               height: 130,
               child: MyCachedNetworkImage(
-                imageurl: goodData.goodsPicUrl,
+                imageurl: goodData.image,
               ),
             ),
             Positioned(
@@ -34,7 +34,7 @@ class CommdityItem extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width - 210.0,
                 child: Text(
-                  goodData.goodsName,
+                  goodData.name,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -75,7 +75,7 @@ class CommdityItem extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      goodData.goodsMiniPrice,
+                      goodData.price.toString(),
                       style: TextStyle(
                         color: AppColors.primaryGreyText,
                         fontSize: 12.0,
@@ -103,7 +103,7 @@ class CommdityItem extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '￥' + goodData.goodsMiniPrice,
+                      'đ' + goodData.price.toString(),
                       style: TextStyle(
                         color: AppColors.priceColor,
                         fontSize: 16.0,

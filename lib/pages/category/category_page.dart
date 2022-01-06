@@ -70,10 +70,11 @@ class CategoryState extends State<Category> with AutomaticKeepAliveClientMixin {
               children: <Widget>[
                 SearchBar(
                   myOntap: (value) =>
-                      MyNavigator.push(SearchPage(title: '搜索', keyword: value)),
+                      MyNavigator.push(SearchPage(title: 'Search', keyword: value)),
                 ),
                 Expanded(
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SingleChildScrollView(
                         child: Container(

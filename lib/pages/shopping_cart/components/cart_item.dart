@@ -32,11 +32,11 @@ class CartItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-              Head(
-                brandData: brandData,
-                selectedAllGood: () => selectBrandAllGood(brandIndex),
-                isShowCheckButton: isShowCheckButton,
-              ), // head
+              // Head(
+              //   brandData: brandData,
+              //   selectedAllGood: () => selectBrandAllGood(brandIndex),
+              //   isShowCheckButton: isShowCheckButton,
+              // ), // head
             ] +
             brandData.brandList.map<Widget>((GoodItem item) {
               return Content(

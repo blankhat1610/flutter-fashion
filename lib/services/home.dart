@@ -5,7 +5,7 @@ import 'package:fashion/utils/request.dart';
 class HomeAPI {
   /// Get homepage data
   static Future<HomeModel> getHomeData() async {
-    var response = await RequestUtil().get('/index');
+    var response = await RequestUtil().get('/home');
     return HomeModel.fromJson(response);
   }
 }

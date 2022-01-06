@@ -81,11 +81,11 @@ class _HomePageContainerState extends State<HomePageContainer> {
                         ),
 
                         /// Top carousel picture
-                        SliverToBoxAdapter(
-                          child: HeadSwiper(
-                            bannerList: state.banerList,
-                          ),
-                        ),
+                        // SliverToBoxAdapter(
+                        //   child: HeadSwiper(
+                        //     bannerList: state.banerList,
+                        //   ),
+                        // ),
 
                         /// Commodity classification area
                         SliverToBoxAdapter(
@@ -94,9 +94,9 @@ class _HomePageContainerState extends State<HomePageContainer> {
                         ),
 
                         /// Brand carousel area
-                        SliverToBoxAdapter(
-                          child: BrandSwiper(brandList: state.brandList),
-                        ),
+                        // SliverToBoxAdapter(
+                        //   child: BrandSwiper(brandList: state.brandList),
+                        // ),
 
                         /// Hot sales area
                       ] +

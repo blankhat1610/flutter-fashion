@@ -33,7 +33,7 @@ class SubCategoryListState extends State<SubCategoryList> {
               child: widget.data != null
                   ? SecondryCategory(
                       data: widget.data ??
-                          CategoryDatum(name: '', banner: '', list: []))
+                          CategoryDatum(name: '', list: []))
                   : Center(
                       child: CircularProgressIndicator(),
                     ),
@@ -74,13 +74,13 @@ class SecondryCategory extends StatelessWidget {
 
     return Column(
       children: <Widget>[
-        Container(
-          height: 92,
-          margin: EdgeInsets.only(left: 15, right: 15),
-          child: MyCachedNetworkImage(
-            imageurl: data.banner,
-          ),
-        ),
+        // Container(
+        //   height: 92,
+        //   margin: EdgeInsets.only(left: 15, right: 15),
+        //   child: MyCachedNetworkImage(
+        //     imageurl: data.banner,
+        //   ),
+        // ),
         GridView.count(
           childAspectRatio: _childAspectRatio,
           crossAxisCount: _crossAxisCount,
@@ -99,7 +99,7 @@ class SecondryCategory extends StatelessWidget {
                         height: 50,
                         width: 50,
                         child: MyCachedNetworkImage(
-                          imageurl: i.icon,
+                          imageurl: i.thumb,
                         ),
                       ),
                       Text(
