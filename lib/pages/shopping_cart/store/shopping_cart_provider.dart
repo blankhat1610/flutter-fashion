@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:fashion/components/my_toast.dart';
+import 'package:fashion/config/config.dart';
+import 'package:fashion/services/cart.dart';
 import 'package:flutter/foundation.dart';
 
 class ShopingCartProvider with ChangeNotifier {
@@ -17,56 +19,42 @@ class ShopingCartProvider with ChangeNotifier {
   bool isEditMode = false;
 
   ShopingCartProvider() {
+    getData();
     changeBrandState();
     changeBottomState();
   }
 
+  getData() async {
+    final carts = await CartApi.getItemsInCart();
+    _brandList = [
+      BrandItem(
+          brandName: "",
+          brandCompany: "",
+          brandSendByself: false,
+          brandSendBySend: true,
+          brandList: carts
+              .map((e) => GoodItem(
+                  good: Good(
+                      goodsBrandId: 'MXT',
+                      goodsBrandName: e.name,
+                      goodsBrandCompany: 'MXT',
+                      goodsId: e.id.toString(),
+                      goodsName: e.name,
+                      goodsDescription: e.description,
+                      imageUrl: SERVER_HOST_IMG + e.thumb,
+                      minBuyCount: "10",
+                      stockQuantity: 300,
+                      price: e.price),
+                  goodIsChecked: false,
+                  count: e.quantity))
+              .toList(),
+          isBrandChecked: false)
+    ];
+    notifyListeners();
+  }
+
   /// Brand list
-  List<BrandItem> _brandList = [
-    BrandItem(
-      brandName: 'UNIQLO',
-      brandCompany: 'Uniqlo Clothing Co. , Ltd.',
-      brandSendByself: true,
-      brandSendBySend: true,
-      isBrandChecked: false,
-      brandList: [
-        GoodItem(
-          goodIsChecked: false,
-          good: getOneGood1(),
-          count: 1,
-        ),
-        GoodItem(
-          goodIsChecked: true,
-          good: getOneGood1(),
-          count: 1,
-        ),
-        GoodItem(
-          goodIsChecked: false,
-          good: getOneGood1(),
-          count: 1,
-        ),
-      ],
-    ),
-    BrandItem(
-      brandName: 'MUJI',
-      brandCompany: 'MUJI Trading Co. , Ltd.',
-      brandSendByself: false,
-      brandSendBySend: true,
-      isBrandChecked: false,
-      brandList: [
-        GoodItem(
-          goodIsChecked: true,
-          good: getOneGood2(),
-          count: 1,
-        ),
-        GoodItem(
-          goodIsChecked: false,
-          good: getOneGood2(),
-          count: 1,
-        ),
-      ],
-    ),
-  ];
+  List<BrandItem> _brandList = [];
 
   /// Get _brandList
   List<BrandItem> get getBrandList => this._brandList;
@@ -183,11 +171,12 @@ class ShopingCartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void deteleGood() {
+  void deteleGood() async {
     this._brandList.forEach((brandItem) {
       brandItem.isBrandChecked = false;
       for (var i = brandItem.brandList.length - 1; i >= 0; i--) {
         if (brandItem.brandList[i].goodIsChecked) {
+          CartApi.deleteCart(brandItem.brandList[i].good.goodsId);
           brandItem.brandList.removeAt(i);
         }
       }

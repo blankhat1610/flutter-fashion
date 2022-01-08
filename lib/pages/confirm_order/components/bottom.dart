@@ -1,16 +1,22 @@
 import 'package:fashion/components/components.dart';
 import 'package:fashion/pages/order_detail/order_detail_page.dart';
+import 'package:fashion/services/cart.dart';
 import 'package:fashion/styles/styles.dart';
 import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 
 class Bottom extends StatelessWidget {
-  const Bottom({Key? key}) : super(key: key);
+  final int? id;
+  const Bottom({Key? key, this.id}) : super(key: key);
 
   // pop-up dialogue box
   void _showCancelDialog(BuildContext context) async {
     MyDialog.showLoading('submit ...', barrier: true);
-    await Future.delayed(Duration(seconds: 3), () {});
+    if (id == null) {
+      await CartApi.submitOrder();
+    } else {
+      await CartApi.buyNow(id!);
+    }
     MyDialog.hideLoading();
 
     showDialog(

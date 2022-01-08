@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 class CommdityItem extends StatelessWidget {
   final GoodsList goodData;
+
   const CommdityItem({Key? key, required this.goodData}) : super(key: key);
 
   @override

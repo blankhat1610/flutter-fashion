@@ -8,30 +8,32 @@ import 'components/bottom.dart';
 import 'components/order_item.dart';
 import 'components/top.dart';
 
-class ConfirmOrderPage extends StatelessWidget {
-  const ConfirmOrderPage({Key? key}) : super(key: key);
+class ConfirmOrderPageBuyNow extends StatelessWidget {
+  final BrandItem brandItem;
+
+  const ConfirmOrderPageBuyNow({Key? key, required this.brandItem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => ShopingCartProvider()),
-      ],
-      child: BaseScaffold(
-        leadType: AppBarBackType.Back,
-        title: 'Confirm order',
-        body: GestureDetector(
-          behavior: HitTestBehavior.translucent,
-          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-          child: ConfirmOrderPageContainer(),
+    return BaseScaffold(
+      leadType: AppBarBackType.Back,
+      title: 'Confirm order',
+      body: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+        child: ConfirmOrderPageContainerBuyNow(
+          brandItem: brandItem,
         ),
       ),
     );
   }
 }
 
-class ConfirmOrderPageContainer extends StatelessWidget {
-  const ConfirmOrderPageContainer({Key? key}) : super(key: key);
+class ConfirmOrderPageContainerBuyNow extends StatelessWidget {
+  final BrandItem brandItem;
+
+  const ConfirmOrderPageContainerBuyNow({Key? key, required this.brandItem})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +51,7 @@ class ConfirmOrderPageContainer extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Top(),
-                  Consumer<ShopingCartProvider>(
-                      builder: (context, value, child) =>
-                          value.getBrandList.isNotEmpty && value.getBrandList.first.brandList.isNotEmpty
-                              ? _buildOrderList(context,
-                                  orderList: value.getBrandList)
-                              : Center(
-                                  child: CircularProgressIndicator(),
-                                )),
+                  _buildOrderList(context, orderList: [brandItem]),
                 ],
               ),
             ),
@@ -65,7 +60,9 @@ class ConfirmOrderPageContainer extends StatelessWidget {
             left: 0,
             right: 0,
             bottom: 0,
-            child: Bottom(),
+            child: Bottom(
+              id: int.tryParse(brandItem.brandList.first.good.goodsId),
+            ),
           ),
         ],
       ),

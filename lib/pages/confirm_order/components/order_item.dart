@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({Key? key}) : super(key: key);
+  final GoodItem brandItem;
+  const OrderItem(Key? key, {required this.brandItem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,6 @@ class OrderItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _buildSupplierName(),
           _buildGoodsBanner(context),
           _buildInfo(),
           Remark(),
@@ -30,7 +30,7 @@ class OrderItem extends StatelessWidget {
   /// Supplier name
   Widget _buildSupplierName() {
     return Text(
-      'Uniqlo',
+      '${brandItem.good.goodsName}',
       style: TextStyle(
         color: Color(0xFF121212),
         fontSize: 14,
@@ -42,29 +42,19 @@ class OrderItem extends StatelessWidget {
   /// Commodity banner
   Widget _buildGoodsBanner(BuildContext context) {
     /// Number of products
-    List goodsList = [1, 1, 1, 1];
     return Container(
       margin: EdgeInsets.only(top: 12, bottom: 18),
       padding: EdgeInsets.all(10),
-      width: MediaQuery.of(context).size.width - 30,
       color: Color(0xFFF7F7F7),
-      child: Wrap(
-        spacing: 10.0,
-        alignment: WrapAlignment.start,
-        children: goodsList.map<Widget>((item) {
-              return _buildGoodsBannerItem(
-                  "https://yanxuan.nosdn.127.net/3d70af62c5461e795644b12721508372.png");
-            }).toList() +
-            [_buildGoodTotalNum(context, goodsList.length)],
-      ),
+      child: _buildGoodsBannerItem(brandItem.good.imageUrl)
     );
   }
 
   /// Commodity banner Item
   Widget _buildGoodsBannerItem(String imgUrl) {
     return Container(
-      width: 60,
-      height: 60,
+      width: 120,
+      height: 120,
       child: MyCachedNetworkImage(imageurl: imgUrl),
     );
   }
@@ -137,7 +127,7 @@ class OrderItem extends StatelessWidget {
                 ),
                 children: <TextSpan>[
                   TextSpan(
-                    text: '￥15900',
+                    text: '￥${brandItem.count * brandItem.good.price}',
                     style: TextStyle(
                       color: AppColors.priceColor,
                       fontSize: 16,
@@ -162,51 +152,56 @@ class OrderItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         builder: (BuildContext context) {
-          return _buildDialog(context);
+          return ChangeNotifierProvider(
+            create: (context) => ShopingCartProvider(),
+              child: _buildDialog(context));
         });
   }
 
   /// Dialog
   Widget _buildDialog(BuildContext context) {
     /// The dialog box does not belong to the wdiget tree, it must be re-wrapped with the provider here
-    return ChangeNotifierProvider(
-      create: (_) => ShopingCartProvider(),
-      child: Container(
-        height: MediaQuery.of(context).size.height * 0.75,
-        padding: EdgeInsets.all(10),
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              top: 0,
-              right: 0,
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Container(
-                  height: 30,
-                  child: Icon(
-                    Icons.close,
-                    color: Color(0xFF000000),
-                    size: 24.0,
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 30,
-              left: 0,
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.75,
+      padding: EdgeInsets.all(10),
+      child: Stack(
+        children: <Widget>[
+          Positioned(
+            top: 0,
+            right: 0,
+            child: GestureDetector(
+              onTap: () => Navigator.pop(context),
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.75 -
-                    30 -
-                    MediaQuery.of(context).padding.bottom,
-                width: MediaQuery.of(context).size.width - 20,
-                child: ListView.builder(
-                  itemBuilder: _listItemBuilder,
-                  itemCount: 1,
+                height: 30,
+                child: Icon(
+                  Icons.close,
+                  color: Color(0xFF000000),
+                  size: 24.0,
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          Positioned(
+            top: 30,
+            left: 0,
+            child: Consumer<ShopingCartProvider>(
+              builder: (context, value, child) {
+                return Container(
+                  height: MediaQuery.of(context).size.height * 0.75 -
+                      30 -
+                      MediaQuery.of(context).padding.bottom,
+                  width: MediaQuery.of(context).size.width - 20,
+                  child: value.getBrandList.isNotEmpty ? ListView.builder(
+                    itemBuilder: _listItemBuilder,
+                    itemCount: 1,
+                  ) : Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
