@@ -1,5 +1,5 @@
+import 'package:fashion/styles/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/styles/colors.dart';
 
 class SearchBar extends StatefulWidget {
   final String keyword;
@@ -45,7 +45,7 @@ class _SearchBarState extends State<SearchBar> {
                       height: 15,
                     ),
                     isDense: true,
-                    hintText: "Maximum drop is 8000",
+                    hintText: "Search clothes here",
                     border: InputBorder.none,
                   ),
                 ),

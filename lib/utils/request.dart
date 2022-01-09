@@ -1,7 +1,8 @@
 import 'dart:async';
+
 import 'package:dio/dio.dart';
+import 'package:fashion/config/config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:AiRi/config/config.dart';
 
 /*
   * Request operation class
@@ -90,6 +91,7 @@ class RequestUtil {
         queryParameters: params,
         options: requestOptions,
       );
+      print("a---------------------------------");
       return response.data;
     } on DioError catch (e) {
       throw createErrorEntity(e);

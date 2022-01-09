@@ -1,9 +1,10 @@
 import 'dart:io';
+
+import 'package:fashion/pages/shopping_cart/cart_page.dart';
+import 'package:fashion/pages/shopping_cart/store/shopping_cart_global_provider.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:AiRi/pages/shopping_cart/cart_page.dart';
-import 'package:AiRi/pages/shopping_cart/store/shopping_cart_global_provider.dart';
-import 'package:AiRi/utils/my_navigator.dart';
 
 class AppBarShopCartIconButton extends StatelessWidget {
   const AppBarShopCartIconButton({

@@ -1,6 +1,6 @@
-import 'package:AiRi/styles/colors.dart';
-import 'package:flutter/material.dart';
+import 'package:fashion/styles/colors.dart';
 import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 
 class CategoryMenue extends StatefulWidget {
   final List<String> items;
@@ -31,14 +31,14 @@ class CategoryMenueState extends State<CategoryMenue>
         onTap: () => _menueTaped(i),
         child: Container(
           height: widget.itemHeight,
-          alignment: Alignment.center,
+          alignment: Alignment.centerLeft,
           child: currentItemIndex == i
               ? Container(
                   padding:
                       EdgeInsets.only(top: 5, bottom: 5, left: 12, right: 12),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      //背景径向渐变
+                      //Background radial gradient
                       colors: [AppColors.buttonLine1, AppColors.buttonLine2],
                     ),
                     borderRadius: BorderRadius.circular(20.0),
@@ -51,12 +51,15 @@ class CategoryMenueState extends State<CategoryMenue>
                     ),
                   ),
                 )
-              : Container(
-                  child: Text(
-                    widget.items[i],
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xFF4A4A4A),
+              : Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    child: Text(
+                      widget.items[i],
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Color(0xFF4A4A4A),
+                      ),
                     ),
                   ),
                 ),

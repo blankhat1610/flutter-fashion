@@ -1,8 +1,8 @@
-import 'package:AiRi/components/components.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/model/category.dart';
+import 'package:fashion/pages/search/search_page.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/model/category.dart';
-import 'package:AiRi/pages/search/search_page.dart';
-import 'package:AiRi/utils/my_navigator.dart';
 
 class SubCategoryList extends StatefulWidget {
   final double height;
@@ -33,7 +33,7 @@ class SubCategoryListState extends State<SubCategoryList> {
               child: widget.data != null
                   ? SecondryCategory(
                       data: widget.data ??
-                          CategoryDatum(name: '', banner: '', list: []))
+                          CategoryDatum(name: '', list: []))
                   : Center(
                       child: CircularProgressIndicator(),
                     ),
@@ -74,13 +74,13 @@ class SecondryCategory extends StatelessWidget {
 
     return Column(
       children: <Widget>[
-        Container(
-          height: 92,
-          margin: EdgeInsets.only(left: 15, right: 15),
-          child: MyCachedNetworkImage(
-            imageurl: data.banner,
-          ),
-        ),
+        // Container(
+        //   height: 92,
+        //   margin: EdgeInsets.only(left: 15, right: 15),
+        //   child: MyCachedNetworkImage(
+        //     imageurl: data.banner,
+        //   ),
+        // ),
         GridView.count(
           childAspectRatio: _childAspectRatio,
           crossAxisCount: _crossAxisCount,
@@ -99,7 +99,7 @@ class SecondryCategory extends StatelessWidget {
                         height: 50,
                         width: 50,
                         child: MyCachedNetworkImage(
-                          imageurl: i.icon,
+                          imageurl: i.thumb,
                         ),
                       ),
                       Text(

@@ -1,8 +1,8 @@
+import 'package:fashion/model/goods.dart';
+import 'package:fashion/model/search.dart';
+import 'package:fashion/services/search.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:AiRi/model/goods.dart';
-import 'package:AiRi/model/search.dart';
-import 'package:AiRi/services/search.dart';
 
 class SearchPageProvider with ChangeNotifier {
   RefreshController refreshController =

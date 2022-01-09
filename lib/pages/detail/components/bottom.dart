@@ -1,16 +1,19 @@
-import 'package:AiRi/components/components.dart';
-import 'package:AiRi/pages/confirm_order/confirm_order.dart';
-import 'package:AiRi/pages/supplier/supplier_page.dart';
-import 'package:AiRi/styles/colors.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/config/config.dart';
+import 'package:fashion/pages/confirm_order/confirm_order.dart';
+import 'package:fashion/pages/confirm_order/confirm_order_buynow.dart';
+import 'package:fashion/pages/detail/store/detail_page_provider.dart';
+import 'package:fashion/pages/shopping_cart/cart_page.dart';
+import 'package:fashion/pages/shopping_cart/store/shopping_cart_provider.dart';
+import 'package:fashion/services/cart.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:AiRi/components/my_toast.dart';
-import 'package:AiRi/pages/shopping_cart/cart_page.dart';
-import 'package:AiRi/utils/my_navigator.dart';
+import 'package:provider/provider.dart';
 
 class DetailBottom extends StatelessWidget {
-  final String contact;
-  const DetailBottom({Key? key, required this.contact}) : super(key: key);
+  // final String contact;
+  const DetailBottom({Key? key}) : super(key: key);
 
   /// each item on the left
   Widget _buildleftItem(String imgUrl, String title) {
@@ -36,13 +39,16 @@ class DetailBottom extends StatelessWidget {
   }
 
   /// right
-  Widget _buildRight() {
+  Widget _buildRight(DetailPageProvider state) {
     return Row(
       children: <Widget>[
         GestureDetector(
-          onTap: () => MyToast.show('Successfully added to the shopping cart~'),
+          onTap: () async {
+            CartApi.addToCart(state.goodsId, 1, int.parse(state.price));
+            MyToast.show('Successfully added to the shopping cart');
+          },
           child: Container(
-            width: 90,
+            width: 120,
             height: 40,
             decoration: BoxDecoration(
               // color: AppColors.addToCart,
@@ -68,9 +74,33 @@ class DetailBottom extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () => MyNavigator.push(ConfirmOrderPage()),
+          onTap: () {
+            MyNavigator.push(ConfirmOrderPageBuyNow(
+                brandItem: BrandItem(
+                    brandName: '',
+                    brandSendByself: false,
+                    brandSendBySend: false,
+                    isBrandChecked: true,
+                    brandCompany: 'MXT',
+                    brandList: [
+                  GoodItem(
+                      good: Good(
+                          goodsBrandCompany: 'MXT',
+                          goodsBrandId: "MXT",
+                          goodsBrandName: 'MXT',
+                          goodsDescription: '',
+                          goodsId: state.goodsId.toString(),
+                          goodsName: state.name,
+                          imageUrl: SERVER_HOST_IMG + state.image,
+                          minBuyCount: '',
+                          price: int.parse(state.price),
+                          stockQuantity: 300),
+                      goodIsChecked: true,
+                      count: 1)
+                ])));
+          },
           child: Container(
-            width: 90,
+            width: 120,
             height: 40,
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -98,12 +128,12 @@ class DetailBottom extends StatelessWidget {
     );
   }
 
-  void _contact() async {
-    final url = 'tel:' + contact;
-    if (await canLaunch(url)) {
-      await launch(url);
-    }
-  }
+  // void _contact() async {
+  //   final url = 'tel:' + contact;
+  //   if (await canLaunch(url)) {
+  //     await launch(url);
+  //   }
+  // }
 
   // pop-up dialogue box
   void _showDialog(BuildContext context) {
@@ -121,14 +151,14 @@ class DetailBottom extends StatelessWidget {
             content: Center(
               child: Column(
                 children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(bottom: 10.0),
-                    child: Text(
-                      'Contact phone: $contact ',
-                      style:
-                          TextStyle(color: Color(0xFF666666), fontSize: 14.0),
-                    ),
-                  ),
+                  // Container(
+                  //   padding: EdgeInsets.only(bottom: 10.0),
+                  //   child: Text(
+                  //     'Contact phone: $contact ',
+                  //     style:
+                  //         TextStyle(color: Color(0xFF666666), fontSize: 14.0),
+                  //   ),
+                  // ),
                   Container(
                     child: Text(
                       'Customer service working hours: working days 9:30~17:30',
@@ -142,9 +172,9 @@ class DetailBottom extends StatelessWidget {
             confirmContent: 'make a call',
             isCancel: true,
             confirmTextColor: AppColors.buyNow1,
-            confirmCallback: () {
-              _contact();
-            },
+            // confirmCallback: () {
+            //   _contact();
+            // },
             dismissCallback: () {
               return;
             },
@@ -154,6 +184,7 @@ class DetailBottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final state = Provider.of<DetailPageProvider>(context);
     return Container(
       height: 60 + MediaQuery.of(context).padding.bottom,
       padding: EdgeInsets.only(
@@ -173,34 +204,34 @@ class DetailBottom extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            width: MediaQuery.of(context).size.width / 2,
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                GestureDetector(
-                    onTap: () => _showDialog(context),
-                    child:
-                        _buildleftItem('assets/images/home/lianxi.png', '客服')),
-                SizedBox(
-                  width: 30,
-                ),
-                GestureDetector(
-                    onTap: () =>
-                        MyNavigator.push(SupplierPage(supplierId: 'id')),
-                    child: _buildleftItem('assets/images/home/shop.png', '店铺')),
-                SizedBox(
-                  width: 30,
-                ),
+                // GestureDetector(
+                //     onTap: () => _showDialog(context),
+                //     child:
+                //         _buildleftItem('assets/images/home/lianxi.png', '客服')),
+                // SizedBox(
+                //   width: 30,
+                // ),
+                // GestureDetector(
+                //     onTap: () =>
+                //         MyNavigator.push(SupplierPage(supplierId: 'id')),
+                //     child: _buildleftItem('assets/images/home/shop.png', '店铺')),
+                // SizedBox(
+                //   width: 30,
+                // ),
                 GestureDetector(
                     onTap: () => MyNavigator.push(CartPage()),
                     child: _buildleftItem(
-                        'assets/images/home/gouwuche.png', 'shopping cart')),
+                        'assets/images/home/gouwuche.png', 'Cart')),
               ],
             ),
           ),
           Container(
-            width: MediaQuery.of(context).size.width / 2,
-            child: _buildRight(),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: _buildRight(state),
           ),
         ],
       ),

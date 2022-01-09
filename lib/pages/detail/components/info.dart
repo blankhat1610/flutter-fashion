@@ -1,17 +1,17 @@
+import 'package:fashion/components/my_divider.dart';
+import 'package:fashion/styles/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/components/my_divider.dart';
-import 'package:AiRi/styles/colors.dart';
 
 class Info extends StatelessWidget {
-  final String goodsName;
-  final String brandName;
-  final String goodsSeries;
+  final String name;
+  // final String brandName;
+  // final String goodsSeries;
   final String price;
   const Info(
       {Key? key,
-      required this.goodsName,
-      required this.brandName,
-      required this.goodsSeries,
+      required this.name,
+      // required this.brandName,
+      // required this.goodsSeries,
       required this.price})
       : super(key: key);
 
@@ -19,7 +19,7 @@ class Info extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      height: 125,
+      height: 80,
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Container(
         child: Row(
@@ -33,7 +33,7 @@ class Info extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    goodsName,
+                    name,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -42,22 +42,22 @@ class Info extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Text(
-                    'Brand: $brandName ',
-                    style: TextStyle(
-                      color: AppColors.primaryGreyText,
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  Text(
-                    'Series: $goodsSeries ',
-                    style: TextStyle(
-                      color: AppColors.primaryGreyText,
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
+                  // Text(
+                  //   'Brand: $brandName ',
+                  //   style: TextStyle(
+                  //     color: AppColors.primaryGreyText,
+                  //     fontSize: 14.0,
+                  //     fontWeight: FontWeight.normal,
+                  //   ),
+                  // ),
+                  // Text(
+                  //   'Series: $goodsSeries ',
+                  //   style: TextStyle(
+                  //     color: AppColors.primaryGreyText,
+                  //     fontSize: 14.0,
+                  //     fontWeight: FontWeight.normal,
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -70,38 +70,38 @@ class Info extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 1.5, horizontal: 7),
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryColor,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Text(
-                      'Preferential price',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  // Container(
+                  //   padding: EdgeInsets.symmetric(vertical: 1.5, horizontal: 7),
+                  //   decoration: BoxDecoration(
+                  //     color: AppColors.primaryColor,
+                  //     borderRadius: BorderRadius.circular(10.0),
+                  //   ),
+                  //   child: Text(
+                  //     'Preferential price',
+                  //     style: TextStyle(
+                  //       color: Colors.white,
+                  //       fontSize: 12,
+                  //       fontWeight: FontWeight.normal,
+                  //     ),
+                  //   ),
+                  // ),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
                   RichText(
                     text: TextSpan(
-                        text: '￥',
+                        text: '$price',
                         style: TextStyle(
                           color: AppColors.priceColor,
-                          fontSize: 12,
+                          fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),
                         children: <TextSpan>[
                           TextSpan(
-                            text: '$price',
+                            text: ' đ',
                             style: TextStyle(
                               color: AppColors.priceColor,
-                              fontSize: 18,
+                              fontSize: 12,
                               fontWeight: FontWeight.w500,
                             ),
                           )

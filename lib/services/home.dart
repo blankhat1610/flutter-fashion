@@ -1,11 +1,11 @@
-import 'package:AiRi/model/home.dart';
-import 'package:AiRi/utils/request.dart';
+import 'package:fashion/model/home.dart';
+import 'package:fashion/utils/request.dart';
 
 /// front page
 class HomeAPI {
   /// Get homepage data
   static Future<HomeModel> getHomeData() async {
-    var response = await RequestUtil().get('/index');
+    var response = await RequestUtil().get('/home');
     return HomeModel.fromJson(response);
   }
 }

@@ -1,5 +1,5 @@
+import 'package:fashion/model/goods.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/model/goods.dart';
 
 import 'commdity_item.dart';
 import 'my_divider.dart';

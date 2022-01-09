@@ -1,10 +1,11 @@
-import 'package:AiRi/components/components.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/pages/shopping_cart/store/shopping_cart_provider.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
-import 'package:AiRi/pages/shopping_cart/store/shopping_cart_provider.dart';
-import 'package:AiRi/styles/colors.dart';
-import 'package:AiRi/utils/my_navigator.dart';
+
 import 'components/cart_bottom.dart';
 import 'components/cart_item.dart';
 
@@ -26,8 +27,9 @@ class _CartPageState extends State<CartPage> {
           Selector<ShopingCartProvider, Tuple2<Function, bool>>(
             builder: (_, tuple, __) {
               return IconButton(
+                iconSize: 33.0,
                 icon: Text(
-                  tuple.item2 ? 'Finish' : 'Edit',
+                  tuple.item2 ? 'Save' : 'Edit',
                   style: TextStyle(
                       color: AppColors.primaryGreyText,
                       fontSize: 14,
@@ -70,7 +72,7 @@ class CartContainer extends StatelessWidget {
           child: brandList.length == 0
               ? Empty(
                   img: 'assets/images/shopping_cart/empty.png',
-                  tipText: 'The shopping cart is empty, go shopping~',
+                  tipText: 'The shopping cart is empty, go shopping',
                   buttonText: 'Go to purchase',
                   buttonTap: () => MyNavigator.popToHome(),
                 )

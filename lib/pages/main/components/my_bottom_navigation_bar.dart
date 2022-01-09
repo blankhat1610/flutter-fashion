@@ -6,22 +6,22 @@ import '../store/main_provider.dart';
 // tabBar data B
 const List<Map<String, String>> _tabBarData = [
   {
-    "title": "首页",
+    "title": "Home",
     "image": "assets/images/tabbar/zhuye_off.png",
     "selectedImage": "assets/images/tabbar/zhuye_ON.png",
   },
   {
-    "title": "分类",
+    "title": "Category",
     "image": "assets/images/tabbar/fenlei_off.png",
     "selectedImage": "assets/images/tabbar/fenlei_ON.png",
   },
   {
-    "title": "订单",
+    "title": "Order",
     "image": "assets/images/tabbar/dingdan_off.png",
     "selectedImage": "assets/images/tabbar/diangdan_ON.png",
   },
   {
-    "title": "我的",
+    "title": "Profile",
     "image": "assets/images/tabbar/guanli_off.png",
     "selectedImage": "assets/images/tabbar/guanli_ON.png",
   }

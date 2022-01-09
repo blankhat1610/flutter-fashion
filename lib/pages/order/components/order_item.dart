@@ -1,11 +1,11 @@
-import 'package:AiRi/components/components.dart';
-import 'package:AiRi/pages/order_detail/order_detail_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/pages/order_detail/order_detail_page.dart';
+import 'package:fashion/pages/pay/pay_page.dart';
+import 'package:fashion/pages/supplier/supplier_page.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/pages/pay/pay_page.dart';
-import 'package:AiRi/pages/supplier/supplier_page.dart';
-import 'package:AiRi/styles/colors.dart';
-import 'package:AiRi/utils/my_navigator.dart';
 
 class OrderItem extends StatelessWidget {
   final orderItemData;
@@ -147,13 +147,13 @@ class Content extends StatelessWidget {
               left: 125,
               top: 81.0,
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 0.5, horizontal: 5),
+                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 6),
                 decoration: BoxDecoration(
                   color: AppColors.primaryColor,
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Text(
-                  'Purchase Price',
+                  'Price',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 12,
@@ -318,7 +318,7 @@ class Bottom extends StatelessWidget {
                   splashColor: AppColors.splashColor,
                   child: Center(
                     child: Text(
-                      'Contact customer service',
+                      'Customer service',
                       style: TextStyle(
                         color: Color(0xFF121212),
                         fontSize: 14,
@@ -336,7 +336,7 @@ class Bottom extends StatelessWidget {
                   highlightElevation: 5.0,
                   child: Center(
                     child: Text(
-                      'Cancel order',
+                      'Cancel',
                       style: TextStyle(
                         color: Color(0xFF121212),
                         fontSize: 14,
@@ -355,7 +355,7 @@ class Bottom extends StatelessWidget {
                     color: AppColors.primaryColor,
                     child: Center(
                       child: Text(
-                        'Pay now',
+                        'Pay',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14,

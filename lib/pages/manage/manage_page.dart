@@ -1,9 +1,9 @@
-import 'package:AiRi/components/components.dart';
-import 'package:AiRi/model/goods.dart';
-import 'package:AiRi/pages/manage/store/manage_page_provider.dart';
-import 'package:AiRi/styles/colors.dart';
-import 'package:AiRi/styles/iconfont.dart';
-import 'package:AiRi/styles/styles.dart';
+import 'package:fashion/components/components.dart';
+import 'package:fashion/model/goods.dart';
+import 'package:fashion/pages/manage/store/manage_page_provider.dart';
+import 'package:fashion/styles/colors.dart';
+import 'package:fashion/styles/iconfont.dart';
+import 'package:fashion/styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -102,14 +102,14 @@ class ManageContainer extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Jue Fei',
+                        'Blank Hat',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.w600),
                       ),
                       Divider(height: 5),
-                      Text('I know you better when filling in your interests~',
+                      Text('I know you ',
                           style: TextStyle(color: Colors.white, fontSize: 12)),
                     ],
                   ),
@@ -136,7 +136,7 @@ class ManageContainer extends StatelessWidget {
                     Icon(Iconfont.redpacket_fil,
                         color: AppColors.buyNow2, size: 18),
                     Text(
-                      'Daily check-in',
+                      'Check in',
                       style:
                           TextStyle(color: AppColors.primaryText, fontSize: 12),
                     )
@@ -174,10 +174,10 @@ class ManageContainer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                _buildIconItem(Iconfont.ticket_fill, '优惠券', Color(0xFF4A4A4A),
-                    AppColors.primaryText),
-                _buildIconItem(Iconfont.redpacket_fil, '红包', Color(0xFF4A4A4A),
-                    AppColors.primaryText),
+                _buildIconItem(Iconfont.ticket_fill, 'Coupon',
+                    Color(0xFF4A4A4A), AppColors.primaryText),
+                _buildIconItem(Iconfont.redpacket_fil, 'Red envelop',
+                    Color(0xFF4A4A4A), AppColors.primaryText),
                 _buildIconItem(Iconfont.round_like_fill, 'My Collection',
                     Color(0xFF4A4A4A), AppColors.primaryText),
                 _buildIconItem(Iconfont.card_fill, 'Bank Card',
@@ -215,7 +215,7 @@ class ManageContainer extends StatelessWidget {
   Widget _buildMoreFunc(BuildContext context) {
     Color iconColor = Color(0xFF505257);
     return Container(
-      height: 250,
+      height: 185,
       margin: EdgeInsets.only(
           top: MediaQuery.of(context).padding.top + 330, left: 10, right: 10),
       decoration: BoxDecoration(
@@ -235,14 +235,14 @@ class ManageContainer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                _buildIconItem(Iconfont.news_light, 'My Assets', iconColor,
+                _buildIconItem(Iconfont.news_light, 'Assets', iconColor,
                     AppColors.primaryText),
-                _buildIconItem(Iconfont.game, 'Daily Welfare', iconColor,
+                _buildIconItem(
+                    Iconfont.game, 'Welfare', iconColor, AppColors.primaryText),
+                _buildIconItem(Iconfont.magic, 'Customize', iconColor,
                     AppColors.primaryText),
-                _buildIconItem(Iconfont.magic, 'I want to customize', iconColor,
+                _buildIconItem(Iconfont.question, 'Service', iconColor,
                     AppColors.primaryText),
-                _buildIconItem(Iconfont.question, 'Official Customer Service',
-                    iconColor, AppColors.primaryText),
               ],
             ),
           ),
@@ -251,30 +251,14 @@ class ManageContainer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                _buildIconItem(Iconfont.haodian, 'daily good shop', iconColor,
+                _buildIconItem(Iconfont.we_fill_light, 'Wish list', iconColor,
                     AppColors.primaryText),
-                _buildIconItem(Iconfont.tian, 'Daily Welfare', iconColor,
-                    AppColors.primaryText),
-                _buildIconItem(Iconfont.qi, 'Enterprise Procurement', iconColor,
-                    AppColors.primaryText),
-                _buildIconItem(Iconfont.shuang11, 'Chop Hand Double 11',
-                    iconColor, AppColors.primaryText),
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 15, right: 15, top: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                _buildIconItem(Iconfont.we_fill_light, 'wish list', iconColor,
-                    AppColors.primaryText),
-                _buildIconItem(Iconfont.shop_light, '线下门店', iconColor,
+                _buildIconItem(Iconfont.shop_light, 'Offline Store', iconColor,
                     AppColors.primaryText),
                 _buildIconItem(Iconfont.sports, 'Sports Health', iconColor,
                     AppColors.primaryText),
-                _buildIconItem(Iconfont.discover, 'discovery discovery',
-                    iconColor, AppColors.primaryText),
+                _buildIconItem(Iconfont.discover, 'Discovery', iconColor,
+                    AppColors.primaryText),
               ],
             ),
           ),

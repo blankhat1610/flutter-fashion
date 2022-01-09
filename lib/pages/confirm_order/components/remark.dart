@@ -1,5 +1,5 @@
+import 'package:fashion/styles/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:AiRi/styles/styles.dart';
 
 class Remark extends StatefulWidget {
   const Remark({Key? key}) : super(key: key);

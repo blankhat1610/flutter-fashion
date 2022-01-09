@@ -1,9 +1,9 @@
 // import 'package:fluterdemo/model/goodList.dart';
-import 'package:AiRi/styles/colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fashion/pages/shopping_cart/store/shopping_cart_provider.dart';
+import 'package:fashion/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:AiRi/pages/shopping_cart/store/shopping_cart_provider.dart';
 
 class CartItem extends StatelessWidget {
   // Take out the data of each brand
@@ -32,11 +32,11 @@ class CartItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-              Head(
-                brandData: brandData,
-                selectedAllGood: () => selectBrandAllGood(brandIndex),
-                isShowCheckButton: isShowCheckButton,
-              ), // head
+              // Head(
+              //   brandData: brandData,
+              //   selectedAllGood: () => selectBrandAllGood(brandIndex),
+              //   isShowCheckButton: isShowCheckButton,
+              // ), // head
             ] +
             brandData.brandList.map<Widget>((GoodItem item) {
               return Content(

@@ -1,9 +1,9 @@
 /// supplier provider
+import 'package:fashion/model/goods.dart';
+import 'package:fashion/model/supplier.dart';
+import 'package:fashion/services/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:AiRi/model/goods.dart';
-import 'package:AiRi/model/supplier.dart';
-import 'package:AiRi/services/services.dart';
 
 class SupplierPageProvider with ChangeNotifier {
   RefreshController refreshController =

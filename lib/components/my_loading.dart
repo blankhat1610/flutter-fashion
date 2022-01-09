@@ -1,4 +1,4 @@
-import 'package:AiRi/styles/colors.dart';
+import 'package:fashion/styles/colors.dart';
 import 'package:flutter/material.dart';
 
 class MyLoadingWidget extends StatelessWidget {

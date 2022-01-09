@@ -1,11 +1,13 @@
-import 'package:AiRi/components/my_cahenetwork_image.dart';
+import 'package:fashion/components/my_cahenetwork_image.dart';
+import 'package:fashion/model/home.dart';
+import 'package:fashion/pages/main/store/main_provider.dart';
+import 'package:fashion/pages/search/search_page.dart';
+import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:AiRi/model/home.dart';
-import 'package:AiRi/pages/main/store/main_provider.dart';
-import 'package:AiRi/pages/search/search_page.dart';
-import 'package:AiRi/utils/my_navigator.dart';
+
 import '../../../styles/colors.dart';
+import '../../../config/config.dart';
 
 class CommodityCateGory extends StatelessWidget {
   final List<BrandListElement> cateGoryList;
@@ -38,11 +40,13 @@ class CommodityCateGory extends StatelessWidget {
                           fit: BoxFit.contain,
                         )
                       : MyCachedNetworkImage(
-                          imageurl: cateGoryList[i].icon,
+                          imageurl: SERVER_HOST_IMG + cateGoryList[i].icon,
                         ),
                 ),
                 Text(
-                  i == cateGoryList.length ? '更多分类' : cateGoryList[i].name,
+                  i == cateGoryList.length
+                      ? 'More Category'
+                      : cateGoryList[i].name,
                   style: TextStyle(
                     color: AppColors.primaryText,
                     fontSize: 12,
