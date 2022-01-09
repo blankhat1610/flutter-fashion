@@ -89,7 +89,7 @@ class _LoginFormState extends State<LoginPage> {
                           height: 8,
                         ),
                         Text(
-                          'AiRi',
+                          'NT Fashion',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.normal,

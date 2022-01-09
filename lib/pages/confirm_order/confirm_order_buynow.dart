@@ -11,7 +11,8 @@ import 'components/top.dart';
 class ConfirmOrderPageBuyNow extends StatelessWidget {
   final BrandItem brandItem;
 
-  const ConfirmOrderPageBuyNow({Key? key, required this.brandItem}) : super(key: key);
+  const ConfirmOrderPageBuyNow({Key? key, required this.brandItem})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +61,7 @@ class ConfirmOrderPageContainerBuyNow extends StatelessWidget {
             left: 0,
             right: 0,
             bottom: 0,
-            child: Bottom(
-              id: int.tryParse(brandItem.brandList.first.good.goodsId),
-            ),
+            child: Bottom(good: brandItem.brandList.first.good),
           ),
         ],
       ),

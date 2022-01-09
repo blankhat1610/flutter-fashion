@@ -291,7 +291,7 @@ class Content extends StatelessWidget {
                   left: 140,
                   top: 83.5,
                   child: Text(
-                    '￥' + goodData.good.price.toString(),
+                    goodData.good.price.toString() + ' đ',
                     style: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w600,

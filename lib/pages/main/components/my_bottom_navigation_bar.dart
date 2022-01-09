@@ -16,11 +16,6 @@ const List<Map<String, String>> _tabBarData = [
     "selectedImage": "assets/images/tabbar/fenlei_ON.png",
   },
   {
-    "title": "Order",
-    "image": "assets/images/tabbar/dingdan_off.png",
-    "selectedImage": "assets/images/tabbar/diangdan_ON.png",
-  },
-  {
     "title": "Profile",
     "image": "assets/images/tabbar/guanli_off.png",
     "selectedImage": "assets/images/tabbar/guanli_ON.png",
@@ -77,7 +72,7 @@ class MyBottomNavigationBar extends StatelessWidget {
     var index = 0;
     return _tabBarData.map((item) {
       return _getBottomBarItem(item["title"], item["image"],
-          item["selectedImage"], context, index++ == 3 ? _getBadge() : null);
+          item["selectedImage"], context, index++ == 2 ? _getBadge() : null);
     }).toList();
   }
 

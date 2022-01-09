@@ -21,7 +21,7 @@ class OrderItem extends StatelessWidget {
         children: <Widget>[
           _buildGoodsBanner(context),
           _buildInfo(),
-          Remark(),
+          // Remark(),
         ],
       ),
     );
@@ -152,9 +152,7 @@ class OrderItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         builder: (BuildContext context) {
-          return ChangeNotifierProvider(
-            create: (context) => ShopingCartProvider(),
-              child: _buildDialog(context));
+          return _buildDialog(context);
         });
   }
 

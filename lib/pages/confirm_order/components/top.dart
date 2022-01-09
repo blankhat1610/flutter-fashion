@@ -23,9 +23,10 @@ class Top extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text('Zhang Xiaofeng', style: contactText),
+            Text('Xuan Thuong', style: contactText),
             SizedBox(width: 30),
-            Text('18888888888', style: contactText),
+            Spacer(),
+            Text('0944513107', style: contactText),
             SizedBox(width: 15),
             Image.asset(
               'assets/images/confirm_order/edit.png',
@@ -64,23 +65,23 @@ class Top extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              width: MediaQuery.of(context).size.width - 130,
+            Flexible(
+              flex: 6,
               child: Text(
-                'Address of Yubei District, Chongqing, Chongqing, No. 21-6, Wanda Plaza Store, Tiangong Street, Yubei District, Chongqing City',
+                '87-89 Nguyen Dinh Hien, Phuong Hoa Quy, Quan Ngu Hanh Son, TP. Da Nang',
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: leftText,
               ),
             ),
-            Container(
-              width: 100,
+            Flexible(
+              flex: 4,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text('Switch address', style: rightText),
                   Container(
-                    width: 20,
+                    width: 10,
                     child: Icon(
                       Icons.keyboard_arrow_right,
                       color: Color(0xFF000000),

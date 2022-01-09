@@ -1,21 +1,24 @@
 import 'package:fashion/components/components.dart';
 import 'package:fashion/pages/order_detail/order_detail_page.dart';
+import 'package:fashion/pages/shopping_cart/store/shopping_cart_provider.dart';
 import 'package:fashion/services/cart.dart';
 import 'package:fashion/styles/styles.dart';
 import 'package:fashion/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Bottom extends StatelessWidget {
-  final int? id;
-  const Bottom({Key? key, this.id}) : super(key: key);
+  final Good? good;
+
+  const Bottom({Key? key, this.good}) : super(key: key);
 
   // pop-up dialogue box
   void _showCancelDialog(BuildContext context) async {
     MyDialog.showLoading('submit ...', barrier: true);
-    if (id == null) {
+    if (good == null) {
       await CartApi.submitOrder();
     } else {
-      await CartApi.buyNow(id!);
+      await CartApi.buyNow(int.parse(good!.goodsId));
     }
     MyDialog.hideLoading();
 
@@ -89,7 +92,10 @@ class Bottom extends StatelessWidget {
             width: MediaQuery.of(context).size.width - 128,
             padding: EdgeInsets.symmetric(horizontal: 15),
             color: Colors.white,
-            child: Text('￥15900', style: bottomPriceText),
+            child: Consumer<ShopingCartProvider>(
+                builder: (context, value, child) => Text(
+                    '${good?.price ?? value.getBrandList.first.brandList.fold(0, (previousValue, element) => previousValue! + element.good.price)} đ',
+                    style: bottomPriceText)),
           ),
           GestureDetector(
             onTap: () => _showCancelDialog(context),

@@ -1,4 +1,6 @@
+import 'package:fashion/components/components.dart';
 import 'package:fashion/pages/confirm_order/confirm_order.dart';
+import 'package:fashion/pages/home/home_page.dart';
 import 'package:fashion/pages/shopping_cart/store/shopping_cart_provider.dart';
 import 'package:fashion/styles/styles.dart';
 import 'package:fashion/utils/my_navigator.dart';
@@ -124,7 +126,7 @@ class CartBottom extends StatelessWidget {
                                     shopingCartProvider.goodTotalPrice,
                                 builder: (_, goodTotalPrice, __) {
                                   return Text(
-                                    '￥$goodTotalPrice',
+                                    '$goodTotalPrice đ',
                                     style: TextStyle(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w600,
@@ -133,32 +135,42 @@ class CartBottom extends StatelessWidget {
                                   );
                                 },
                               )),
-                          GestureDetector(
-                            onTap: () => MyNavigator.push(ConfirmOrderPage()),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  //Background radial gradient
-                                  colors: [
-                                    AppColors.buttonLine1,
-                                    AppColors.buttonLine2
-                                  ],
+                          Consumer<ShopingCartProvider>(
+                              builder: (context, value, child) {
+                            return GestureDetector(
+                              onTap: () {
+                                if (value.getBrandList.isEmpty ||
+                                    value
+                                        .getBrandList.first.brandList.isEmpty) {
+                                  _showDialog(context);
+                                } else
+                                  MyNavigator.push(ConfirmOrderPage());
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    //Background radial gradient
+                                    colors: [
+                                      AppColors.buttonLine1,
+                                      AppColors.buttonLine2
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(1.0),
                                 ),
-                                borderRadius: BorderRadius.circular(1.0),
-                              ),
-                              width: 120.0,
-                              height: 60.0,
-                              child: Center(
-                                child: Text(
-                                  'Place an order',
-                                  style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xFFFFFFFF)),
+                                width: 120.0,
+                                height: 60.0,
+                                child: Center(
+                                  child: Text(
+                                    'Place an order',
+                                    style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color(0xFFFFFFFF)),
+                                  ),
                                 ),
                               ),
-                            ),
-                          )
+                            );
+                          })
                         ],
                       );
               },
@@ -167,5 +179,48 @@ class CartBottom extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  // pop-up dialogue box
+  void _showDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (_) {
+          return CustomDialog(
+            title: 'Alert Dialog',
+            titleStyle: TextStyle(
+              color: Color(0xFF121212),
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
+            content: Center(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
+                      'Your cart is not have anything, go shop ping please!',
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(color: Color(0xFF666666), fontSize: 16.0),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            confirmContent: 'Go Shopping',
+            isCancel: true,
+            confirmTextColor: AppColors.buyNow1,
+            confirmCallback: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => new HomePage(),
+              ));
+            },
+            dismissCallback: () {
+              return;
+            },
+          );
+        });
   }
 }

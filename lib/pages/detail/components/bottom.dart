@@ -135,53 +135,6 @@ class DetailBottom extends StatelessWidget {
   //   }
   // }
 
-  // pop-up dialogue box
-  void _showDialog(BuildContext context) {
-    showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (_) {
-          return CustomDialog(
-            title: 'Contact customer service',
-            titleStyle: TextStyle(
-              color: Color(0xFF121212),
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
-            ),
-            content: Center(
-              child: Column(
-                children: <Widget>[
-                  // Container(
-                  //   padding: EdgeInsets.only(bottom: 10.0),
-                  //   child: Text(
-                  //     'Contact phone: $contact ',
-                  //     style:
-                  //         TextStyle(color: Color(0xFF666666), fontSize: 14.0),
-                  //   ),
-                  // ),
-                  Container(
-                    child: Text(
-                      'Customer service working hours: working days 9:30~17:30',
-                      style:
-                          TextStyle(color: Color(0xFF666666), fontSize: 14.0),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            confirmContent: 'make a call',
-            isCancel: true,
-            confirmTextColor: AppColors.buyNow1,
-            // confirmCallback: () {
-            //   _contact();
-            // },
-            dismissCallback: () {
-              return;
-            },
-          );
-        });
-  }
-
   @override
   Widget build(BuildContext context) {
     final state = Provider.of<DetailPageProvider>(context);

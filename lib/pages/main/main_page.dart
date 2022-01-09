@@ -51,7 +51,7 @@ class _MainPageState extends State<MainPage>
           children: <Widget>[
             HomePage(),
             CategoryPage(),
-            OrderPage(),
+            // OrderPage(),
             ManagePage()
           ],
           physics: NeverScrollableScrollPhysics(),

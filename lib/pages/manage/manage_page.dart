@@ -102,14 +102,14 @@ class ManageContainer extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Blank Hat',
+                        'Xuan Thuong',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.w600),
                       ),
                       Divider(height: 5),
-                      Text('I know you ',
+                      Text('Mong thầy cô cho điểm được được',
                           style: TextStyle(color: Colors.white, fontSize: 12)),
                     ],
                   ),
@@ -204,7 +204,7 @@ class ManageContainer extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Image.network(
-          'https://gw.alicdn.com/imgextra/i3/43/O1CN01ZPUEId1CBjWPLKzea_!!43-0-lubanu.jpg',
+          'https://c8.alamy.com/comp/KRKTP6/black-friday-sale-template-horizontal-banner-with-hand-drawn-fashion-KRKTP6.jpg',
           fit: BoxFit.fitWidth,
         ),
       ),

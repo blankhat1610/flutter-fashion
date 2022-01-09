@@ -69,7 +69,7 @@ class CartContainer extends StatelessWidget {
         Container(
           padding: EdgeInsets.only(bottom: 80.0),
           color: Color(0xFFF5F7F7),
-          child: brandList.length == 0
+          child: brandList.length == 0 || brandList.first.brandList.isEmpty
               ? Empty(
                   img: 'assets/images/shopping_cart/empty.png',
                   tipText: 'The shopping cart is empty, go shopping',

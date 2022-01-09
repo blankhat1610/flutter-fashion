@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:fashion/pages/login/login_page.dart';
+import 'package:fashion/pages/shopping_cart/store/shopping_cart_provider.dart';
 import 'package:fashion/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,6 +26,7 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => MainProvider()),
         ChangeNotifierProvider(create: (_) => ShopingCartGlobalProvider()),
+        ChangeNotifierProvider(create: (_) => ShopingCartProvider()),
       ],
       child: MyApp(
         isLogin: isLogin,
